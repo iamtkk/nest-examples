@@ -1,7 +1,8 @@
 import { Controller, Get, Req } from '@nestjs/common';
 import { AppService } from './app.service';
-import { TestService } from './app.testService'
+import { TestService } from './app.testService';
 import { ServiceB } from './users-service/service-B';
+import { ConfigService } from '@nestjs/config/dist';
 
 // @Controller()
 // export class AppController {

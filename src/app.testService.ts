@@ -4,28 +4,38 @@ import { Injectable } from '@nestjs/common';
 //   console.log('데커레이터가 평가됨')
 // }
 
-function reportableClassDecorator<T extends { new (...args: any[]): {} }>(constructor: T){
+function reportableClassDecorator<T extends { new (...args: any[]): {} }>(
+  constructor: T,
+) {
   return class extends constructor {
-    reportingURL = "http://www.example.com";
-  }
+    reportingURL = 'http://www.example.com';
+  };
 }
 
 @Injectable()
 export class TestService {
   // @deco
   test() {
-    console.log('함수 호출됨')
+    console.log('함수 호출됨');
+  }
+
+  findOne(id: number) {
+    console.log('id number is : ', id);
+  }
+
+  findAll(id: number) {
+    console.log('id number is : ', id);
   }
 }
 
 @reportableClassDecorator
 class BugReport {
-  type = "report";
+  type = 'report';
   title: string;
   constructor(t: string) {
     this.title = t;
   }
 }
 
-const bug = new BugReport("Needs dark mode");
+const bug = new BugReport('Needs dark mode');
 console.log(bug);
