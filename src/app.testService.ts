@@ -23,8 +23,8 @@ export class TestService {
     console.log('id number is : ', id);
   }
 
-  findAll(id: number) {
-    console.log('id number is : ', id);
+  findAll(id: number, offset: number) {
+    console.log('id number is : ', id, offset);
   }
 }
 
